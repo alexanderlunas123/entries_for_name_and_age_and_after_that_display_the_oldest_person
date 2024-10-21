@@ -9,7 +9,7 @@ entry_or_entries_of_the_user_or_users = {}
 while True:
     while True:
         try:
-            entry_name = input("Enter the name (can be you or anyone): ")  
+            entry_name = input("Enter the name (can be you or anyone): ")         
             entry_age = int(input("Enter the age (your age or their age): "))           
 
             # the_assigned_dictionary[name] = {"age" : age}; storing the inputted datas into the dictionary
