@@ -5,16 +5,18 @@ entry_or_entries_of_the_user_or_users = {}
     # A while loop again inside the previous while loop (1st Loop); a loop where it raises an error whenever the user/s entered an invalid input; and this loop goes from inputting the necessary datas, storing it to the our dedicated dictionary, printing the desired data, and lastly, verifying if the user/s want to input another entry
         # Error function: try (run the given algoruthm)
             # name input
-            # age input 
+            # age input  
+allowed_special_characters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/"            
+
 while True:    
  while True:
-    entry_name = input("Enter the name (can be you or anyone): ") 
-    if entry_name.isalpha():
+    entry_name = input("Enter the name (can be you or anyone): ").strip()
+    replacing_spaced_names = entry_name.replace(" ", "")
+    if all(char.isalnum() or char in allowed_special_characters for char in replacing_spaced_names):
         break   
-    elif entry_name.isdigit():
-        print("Invalid input, must be a name.")
     else:
-        print("Invalid input, must be a name.")  
+        print("The inputted character(s) is/are invalid.")  
+        print("Please try again")
  while True:          
     try:             
         entry_age = int(input("Enter the age (your age or their age): "))
@@ -27,7 +29,10 @@ while True:
     "Age" : entry_age
  }
 
- print(entry_or_entries_of_the_user_or_users[entry_name])
+ print(entry_or_entries_of_the_user_or_users[entry_name]["Name"])
+ print(entry_or_entries_of_the_user_or_users[entry_name]["Age"])
+
+
             # the_assigned_dictionary[name] = {"age" : age}; storing the inputted datas into the dictionary
 
             # print the oldest person (using the dictionary with the max function)
