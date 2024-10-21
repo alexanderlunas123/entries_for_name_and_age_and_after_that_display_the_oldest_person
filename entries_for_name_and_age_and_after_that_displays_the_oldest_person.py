@@ -6,8 +6,8 @@ entry_or_entries_of_the_user_or_users = {}
         # Error function: try (run the given algoruthm)
             # name input
             # age input 
-    
-while True:
+while True:    
+ while True:
     entry_name = input("Enter the name (can be you or anyone): ") 
     if entry_name.isalpha():
         break   
@@ -15,13 +15,19 @@ while True:
         print("Invalid input, must be a name.")
     else:
         print("Invalid input, must be a name.")  
-while True:          
+ while True:          
     try:             
         entry_age = int(input("Enter the age (your age or their age): "))
         break  
     except:
-        print("Invalid input, must be a number.")       
+        print("Invalid input, must be a number.")   
 
+ entry_or_entries_of_the_user_or_users[entry_name] = { 
+    "Name" : entry_name,
+    "Age" : entry_age
+ }
+
+ print(entry_or_entries_of_the_user_or_users[entry_name])
             # the_assigned_dictionary[name] = {"age" : age}; storing the inputted datas into the dictionary
 
             # print the oldest person (using the dictionary with the max function)
