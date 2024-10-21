@@ -31,8 +31,15 @@ while True:
 
  print(entry_or_entries_of_the_user_or_users[entry_name]["Name"])
  print(entry_or_entries_of_the_user_or_users[entry_name]["Age"])
-
-
+ 
+ while True:
+    another_entry = input("Would you like to submit another entry? (Yes/No): ")
+    another_entry = another_entry.capitalize()
+    if another_entry.isalpha():
+        break
+    else:
+        print("Invalid input, 'Yes' or 'No' only.")
+        print("Please try again.")      
             # the_assigned_dictionary[name] = {"age" : age}; storing the inputted datas into the dictionary
 
             # print the oldest person (using the dictionary with the max function)
