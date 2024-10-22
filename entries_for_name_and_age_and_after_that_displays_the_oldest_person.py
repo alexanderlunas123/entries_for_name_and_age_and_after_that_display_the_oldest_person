@@ -18,13 +18,12 @@ while True:
             except:
                 print("Invalid input, must be a number.")   
 
+        print("Submitted successfully to the database.\n")        
+
         entry_or_entries_of_the_user_or_users[entry_name] = { 
             "Name" : entry_name,
             "Age" : entry_age
         }
-
-        print(f'Name: {entry_or_entries_of_the_user_or_users[entry_name]["Name"]}')
-        print(f'Age: {entry_or_entries_of_the_user_or_users[entry_name]["Age"]} years old')
  
         while True:
             another_entry = input("Would you like to submit another entry? (Yes/No): ").capitalize()      
@@ -38,6 +37,13 @@ while True:
 
         if another_entry == "No":
             break       
-            
+
+oldest_person_among_the_entries = None
+maximum_age = -1
+
 for name_entry_or_entries, age_entry_or_entries in entry_or_entries_of_the_user_or_users.items():
-    print(f"Name: {name_entry_or_entries}\nAge: {age_entry_or_entries['Age']} years old\n")     
+    if age_entry_or_entries["Age"] > maximum_age:
+        maximum_age = age_entry_or_entries["Age"]
+        oldest_person_among_the_entries = name_entry_or_entries
+
+print(f"\nThe oldest person is '{oldest_person_among_the_entries}' with an age of {maximum_age} years old.\n")       
