@@ -24,7 +24,7 @@ while True:
         }
 
         print(f'Name: {entry_or_entries_of_the_user_or_users[entry_name]["Name"]}')
-        print(f'Age: {entry_or_entries_of_the_user_or_users[entry_name]["Age"]}')
+        print(f'Age: {entry_or_entries_of_the_user_or_users[entry_name]["Age"]} years old')
  
         while True:
             another_entry = input("Would you like to submit another entry? (Yes/No): ").capitalize()      
@@ -40,5 +40,4 @@ while True:
             break       
             
 for name_entry_or_entries, age_entry_or_entries in entry_or_entries_of_the_user_or_users.items():
-    print(f"{name_entry_or_entries}: {age_entry_or_entries}")     
-            
+    print(f"Name: {name_entry_or_entries}\nAge: {age_entry_or_entries['Age']} years old\n")     
