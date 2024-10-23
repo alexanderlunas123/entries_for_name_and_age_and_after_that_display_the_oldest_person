@@ -41,7 +41,6 @@ while True:
 
         # format of storing the values inside the dictionary, which is key-values pair ('the identifier' and the 'details')
         entry_or_entries_of_the_user_or_users[entry_name] = { 
-            "Name" : entry_name,
             "Age" : entry_age
         }
  
@@ -69,8 +68,8 @@ while True:
             # break the main loop (loop 1)
             break 
 
-# var assigned initially to none, will be updated to the latter evaluation part; the next algorithm
-oldest_person_among_the_entries = None
+# var for the oldest persons; stored in a list array
+oldest_people_among_the_entries = []
 # var assigned to -1 which is impossible to be a thing to an age, so that we a starting point for comparing the datas inside the dictionary
 maximum_age = -1
 
@@ -80,8 +79,19 @@ for name_entry_or_entries, age_entry_or_entries in entry_or_entries_of_the_user_
     if age_entry_or_entries["Age"] > maximum_age:
         # this is where the oldest age will be determined after evaluating together with the for loop inside the dictionary
         maximum_age = age_entry_or_entries["Age"]
-        # also the corresponding pair of the determined oldest age is also addressed
-        oldest_person_among_the_entries = name_entry_or_entries
+        # also the corresponding pair of the determined oldest age is also addressed (stored on the list since we will also address a case where more than one entry shares th oldest age)
+        oldest_people_among_the_entries = [name_entry_or_entries]  
+    # after determining the oldest age, the for loop will run again inside the dictionary to confirm this else-if statement, this will determined and accepts true that aligns to the determined oldest age    
+    elif age_entry_or_entries["Age"] == maximum_age:
+        # with the else-if evaluation, we will append the corresponding pair of those truth oldest age that aligns to the determined oldest age
+        oldest_people_among_the_entries.append(name_entry_or_entries)  
 
-# printing for the main objective output of this program; oldest person's name and their age
-print(f"\nThe oldest person is '{oldest_person_among_the_entries}' with an age of {maximum_age} years old.\n")       
+# print the context of the result
+print("\nBased on the entry/entries:")
+# print the result (utilize the .join() method so that if the else-if statement returned true, the evaluation will be added to the output), together with this of course the oldest age itself
+print(f"'{'; '.join(oldest_people_among_the_entries)}' is/are the oldest person/s with an age of {maximum_age} years old.\n")
+
+# just print the entry/entries (for tracking the datas), utilized the for loop and the .items() method to iterate the key-values pair inside the dictionary
+print("Entry/Entries:")
+for name_entry_or_entries, age_entry_or_entries in entry_or_entries_of_the_user_or_users.items():
+    print(f"Name: {name_entry_or_entries}\nAge: {age_entry_or_entries['Age']} years old""\n")
